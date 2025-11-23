@@ -20,7 +20,7 @@ async def register(user_in: UserCreate, session: AsyncSession = Depends(get_sess
 
     # 2. Валидация пароля
     if not validate_complexity(user_in.password):
-        raise HTTPException(422, detail="Password too weak (needs A-Z, a-z, 0-9, special)")
+        raise HTTPException(422, detail="Password too weak (min 8 symbols: needs A-Z, a-z, 0-9, special)")
 
     # 3. Проверка дубликата
     statement = select(User).where(User.login == user_in.login)
