@@ -1,0 +1,90 @@
+:root {
+  --bg-color: #f0f0f0;
+  --card-bg: #fff;
+  --primary: #ffeb3b;
+  --error: #ff5252;
+  --success: #69f0ae;
+  --border: 3px solid #000;
+  --shadow: 5px 5px 0px #000;
+}
+
+body {
+  background-color: #8e44ad;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.neo-card {
+  background: var(--card-bg);
+  border: var(--border);
+  box-shadow: var(--shadow);
+  padding: 40px;
+  width: 350px;
+  text-align: center;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 30px;
+  background: var(--primary);
+  border: var(--border);
+  display: inline-block;
+  padding: 10px;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: var(--border);
+  font-weight: bold;
+  font-size: 14px;
+  box-sizing: border-box;
+  transition: 0.2s;
+}
+
+input:focus {
+  outline: none;
+  background: #e1f5fe;
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: var(--border);
+  background: #000;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.1s;
+}
+
+button:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.status-box {
+  margin-top: 20px;
+  border: var(--border);
+  padding: 15px;
+  font-weight: bold;
+}
+
+.status-box.error { background: var(--error); }
+.status-box.success { background: var(--success); }
