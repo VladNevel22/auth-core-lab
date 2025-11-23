@@ -1,0 +1,27 @@
+services:
+  database:
+    image: postgres:16-alpine
+    volumes:
+      - neo_pg_data:/var/lib/postgresql/data
+    env_file: .env
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build: ./backend
+    env_file: .env
+    ports: ["8000:8000"]
+    volumes: ["./backend:/code"]
+    depends_on:
+      database: { condition: service_healthy }
+
+  frontend:
+    build: ./frontend
+    ports: ["80:80"]
+    depends_on: ["backend"]
+
+volumes:
+  neo_pg_data:
