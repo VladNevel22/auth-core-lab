@@ -88,3 +88,43 @@ button:active {
 
 .status-box.error { background: var(--error); }
 .status-box.success { background: var(--success); }
+
+.password-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.password-group input {
+  margin-bottom: 0;
+  padding-right: 80px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+  padding: 0 15px;
+  border: none;
+  border-left: 3px solid #000;
+  background: #ddd;
+  color: #000;
+  font-size: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.toggle-btn:hover {
+  background: #ffeb3b;
+}
+
+.toggle-btn:active {
+  transform: none;
+  background: #000;
+  color: #fff;
+}

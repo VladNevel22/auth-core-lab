@@ -5,6 +5,8 @@ import './App.css';
 function App() {
   const [form, setForm] = useState({ login: '', password: '' });
   const [msg, setMsg] = useState<{text: string, type: 'error'|'success'|null}>({text:'', type:null});
+  
+  const [showPassword, setShowPassword] = useState(false);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,12 +28,23 @@ function App() {
           value={form.login}
           onChange={e => setForm({...form, login: e.target.value})}
         />
-        <input 
-          type="password" 
-          placeholder="PASSWORD (Strong!)" 
-          value={form.password}
-          onChange={e => setForm({...form, password: e.target.value})}
-        />
+        
+        <div className="password-group">
+          <input 
+            type={showPassword ? "text" : "password"}
+            placeholder="PASSWORD (Strong!)" 
+            value={form.password}
+            onChange={e => setForm({...form, password: e.target.value})}
+          />
+          <button 
+            type="button"
+            className="toggle-btn"
+            onClick={() => setShowPassword(!showPassword)}
+          >
+            {showPassword ? 'HIDE' : 'SHOW'}
+          </button>
+        </div>
+
         <button type="submit">Register Now</button>
       </form>
       
